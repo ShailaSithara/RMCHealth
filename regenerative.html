@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regenerative Medicine - RMC Health</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0D4F5C;
+            --primary-light: #1A6B7A;
+            --accent: #C99654;
+            --accent-light: #D4A76A;
+            --text-gray: #5A6C7D;
+            --bg-light: #F8FAFB;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-gray);
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, rgba(199, 230, 247, 0.95) 0%, rgba(228, 234, 237, 0.9) 60%),
+                        url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop') center/cover;
+            padding: clamp(140px, 20vh, 180px) clamp(1.5rem, 5vw, 6rem) clamp(60px, 10vh, 100px);
+            margin-top: 75px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--text-gray);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: clamp(2rem, 8vw, 5rem) clamp(1.5rem, 5vw, 6rem);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-alt {
+            background: var(--bg-light);
+        }
+
+        .intro-section {
+            text-align: center;
+            max-width: 1100px;
+            margin: 0 auto 4rem;
+        }
+
+        .intro-text {
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            line-height: 1.9;
+            color: var(--text-gray);
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(199, 230, 247, 0.3), rgba(228, 234, 237, 0.3));
+            border-left: 4px solid var(--accent);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .therapy-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 6px 30px rgba(13, 79, 92, 0.08);
+            transition: all 0.4s ease;
+            border: 2px solid rgba(201, 150, 84, 0.15);
+            margin-bottom: 3rem;
+        }
+
+        .therapy-card:hover {
+            box-shadow: 0 15px 50px rgba(13, 79, 92, 0.12);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .therapy-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 2.5rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .therapy-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .therapy-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 900;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .therapy-subtitle {
+            margin: 0;
+            opacity: 0.95;
+            font-size: 1.1rem;
+        }
+
+        .therapy-content {
+            padding: 2.5rem 2rem;
+        }
+
+        .section-block {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-block h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 2vw, 1.6rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .section-block h3 i {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .section-block p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, rgba(199, 230, 247, 0.2), rgba(228, 234, 237, 0.2));
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px solid rgba(13, 79, 92, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(13, 79, 92, 0.1);
+        }
+
+        .benefit-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .benefit-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0;
+            color: var(--text-gray);
+        }
+
+        .applications-section {
+            background: white;
+            border: 2px solid rgba(13, 79, 92, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .applications-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .application-column h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .application-column h4 i {
+            color: var(--accent);
+        }
+
+        .condition-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .condition-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.98rem;
+            color: var(--text-gray);
+        }
+
+        .condition-list li i {
+            color: var(--accent);
+            margin-top: 0.3rem;
+            flex-shrink: 0;
+        }
+
+        .results-box {
+            background: linear-gradient(135deg, rgba(201, 150, 84, 0.1), rgba(212, 167, 106, 0.1));
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid rgba(201, 150, 84, 0.2);
+            margin: 2rem 0;
+        }
+
+        .results-box h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .results-box h4 i {
+            color: var(--accent);
+            font-size: 1.6rem;
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .cta-banner h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 2vw, 1.8rem);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .cta-banner p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(13, 79, 92, 0.08);
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .comparison-table td {
+            padding: 1.2rem;
+            border-bottom: 1px solid rgba(13, 79, 92, 0.1);
+            font-size: 0.98rem;
+        }
+
+        .comparison-table tr:hover {
+            background: rgba(199, 230, 247, 0.1);
+        }
+
+        .highlight-stat {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(201, 150, 84, 0.1), rgba(212, 167, 106, 0.1));
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .highlight-stat .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-stat p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .therapy-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .applications-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+      <header id="header">
+  <nav>
+    <div class="logo">
+      <!-- 🩺 Replace this with your actual logo path -->
+      <img src="assets/rmc c logo  only.png" alt="RMC Health Logo" class="logo-img">
+      <span>RMC Health</span>
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+
+      <li class="dropdown">
+        <a href="about.html" class="dropdown-toggle">About Us</a>
+        <ul class="dropdown-menu">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#vision-mission">Vision & Mission</a></li>
+          <li><a href="#philosophy">Core Philosophy</a></li>
+          <li><a href="#values">Core Values</a></li>
+          <li><a href="#team">Meet Our Team</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="service.html" class="dropdown-toggle">Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="#spine-care">Spine Care</a></li>
+          <li><a href="#ortho-care">Ortho Care</a></li>
+          <li><a href="#wound-care">Wound Care</a></li>
+          <li><a href="#vascular-health">Vascular Health</a></li>
+          <li><a href="#ed-clinic">ED Clinic</a></li>
+          <li><a href="#metabolic-wellness">Metabolic & Wellness</a></li>
+          <li><a href="#physiotherapy">Physiotherapy</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="regenerative.html" class="dropdown-toggle">Regenerative Medicine</a>
+        <ul class="dropdown-menu">
+          <li><a href="#prp-therapy">PRP Therapy</a></li>
+          <li><a href="#gfc-therapy">GFC Therapy</a></li>
+          <li><a href="#hyaluronic-acid">Hyaluronic Acid</a></li>
+          <li><a href="#ozone-therapy">Ozone Therapy</a></li>
+          <li><a href="#stem-cell">Stem Cell Therapy</a></li>
+        </ul>
+      </li>
+
+      <li><a href="partner.html">Partner With Us</a></li>
+      <li><a href="contact .html" class="contact-btn">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Regenerative Medicine</h1>
+        <p>Harnessing your body's natural healing power through advanced biological therapies</p>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="section">
+        <div class="intro-section">
+            <p class="intro-text">Regenerative medicine at RMC Health represents the cutting edge of non-surgical healing. Our advanced therapies utilize your body's own natural healing mechanisms to repair damaged tissues, regenerate cartilage, accelerate wound healing, and restore function—all without invasive procedures or long-term medication dependency.</p>
+            
+            <div class="highlight-box">
+                <p><i class="fas fa-shield-alt"></i> All our regenerative therapies are minimally invasive, clinically safe, FDA/EU-MDR approved, and supported by extensive global research and documented clinical outcomes.</p>
+            </div>
+        </div>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h4><i class="fas fa-leaf"></i> 100% Natural</h4>
+                <p>Using your body's own healing factors—no synthetic chemicals or foreign substances</p>
+            </div>
+            <div class="benefit-card">
+                <h4><i class="fas fa-clock"></i> Faster Recovery</h4>
+                <p>Accelerated tissue repair and healing compared to conventional treatments</p>
+            </div>
+            <div class="benefit-card">
+                <h4><i class="fas fa-heart"></i> Minimal Side Effects</h4>
+                <p>Because we use autologous (your own) biological materials, risks are minimal</p>
+            </div>
+            <div class="benefit-card">
+                <h4><i class="fas fa-ban"></i> Avoid Surgery</h4>
+                <p>Effective alternative to invasive surgical procedures with no downtime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRP Therapy -->
+    <section class="section section-alt" id="prp-therapy">
+        <div class="therapy-card">
+            <div class="therapy-header">
+                <div class="therapy-icon">
+                    <i class="fas fa-syringe"></i>
+                </div>
+                <div>
+                    <h2>Platelet-Rich Plasma (PRP) Therapy</h2>
+                    <p class="therapy-subtitle">Concentrated healing power from your own blood</p>
+                </div>
+            </div>
+            
+            <div class="therapy-content">
+                <div class="section-block">
+                    <h3><i class="fas fa-microscope"></i> How It Works</h3>
+                    <p>PRP therapy harnesses the healing power of your own blood. A small blood sample is drawn and processed in a specialized centrifuge to concentrate the platelets—cells rich in growth factors and healing proteins. This concentrated platelet solution is then precisely injected into the affected area, where it releases powerful growth factors that stimulate tissue repair, reduce inflammation, and accelerate natural healing processes.</p>
+                </div>
+
+                <div class="applications-section">
+                    <h3>Clinical Applications</h3>
+                    <div class="applications-columns">
+                        <div class="application-column">
+                            <h4><i class="fas fa-bone"></i> Orthopedic Applications</h4>
+                            <ul class="condition-list">
+                                <li><i class="fas fa-check-circle"></i> Knee, shoulder, and hip osteoarthritis</li>
+                                <li><i class="fas fa-check-circle"></i> Tendinitis and chronic tendon injuries</li>
+                                <li><i class="fas fa-check-circle"></i> Ligament sprains and tears</li>
+                                <li><i class="fas fa-check-circle"></i> Sports-related injuries</li>
+                                <li><i class="fas fa-check-circle"></i> Tennis elbow and golfer's elbow</li>
+                                <li><i class="fas fa-check-circle"></i> Plantar fasciitis</li>
+                            </ul>
+                        </div>
+                        <div class="application-column">
+                            <h4><i class="fas fa-band-aid"></i> Wound Care Applications</h4>
+                            <ul class="condition-list">
+                                <li><i class="fas fa-check-circle"></i> Diabetic foot ulcers</li>
+                                <li><i class="fas fa-check-circle"></i> Non-healing surgical wounds</li>
+                                <li><i class="fas fa-check-circle"></i> Pressure sores (bedsores)</li>
+                                <li><i class="fas fa-check-circle"></i> Chronic venous ulcers</li>
+                                <li><i class="fas fa-check-circle"></i> Post-traumatic wounds</li>
+                                <li><i class="fas fa-check-circle"></i> Burn injury recovery</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-box">
+                    <h4><i class="fas fa-chart-line"></i> Expected Results</h4>
+                    <p>Most patients experience significant improvement within 2-6 weeks following PRP treatment. Benefits include reduced pain levels, improved joint mobility, enhanced tissue healing, and decreased inflammation. The natural healing process continues for several months, with many patients reporting sustained improvement for 6-12 months or longer. Multiple sessions may be recommended for optimal results depending on the condition severity.</p>
+                </div>
+
+                <div class="cta-banner">
+                    <h4>Experience Natural Healing with PRP</h4>
+                    <p>Discover how your body's own healing factors can restore your health</p>
+                    <a href="contact.html" class="cta-btn">Book Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GFC Therapy -->
+    <section class="section" id="gfc-therapy">
+        <div class="therapy-card">
+            <div class="therapy-header">
+                <div class="therapy-icon">
+                    <i class="fas fa-dna"></i>
+                </div>
+                <div>
+                    <h2>Growth Factor Concentrate (GFC) Therapy</h2>
+                    <p class="therapy-subtitle">Advanced purified healing for enhanced regeneration</p>
+                </div>
+            </div>
+            
+            <div class="therapy-content">
+                <div class="section-block">
+                    <h3><i class="fas fa-flask"></i> How It Works</h3>
+                    <p>GFC therapy represents an advanced evolution of PRP treatment. While PRP concentrates platelets, GFC goes a step further by isolating and purifying only the concentrated growth factors from your blood. This purification process removes red and white blood cells, delivering a more potent concentration of healing proteins directly to damaged tissues. The result is a stronger regenerative effect with potentially faster recovery times and fewer treatment sessions required.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <p><i class="fas fa-star"></i> GFC provides 3-5 times higher concentration of growth factors compared to standard PRP, making it ideal for more severe or chronic conditions requiring intensive healing.</p>
+                </div>
+
+                <div class="applications-section">
+                    <h3>Clinical Applications</h3>
+                    <div class="applications-columns">
+                        <div class="application-column">
+                            <h4><i class="fas fa-bone"></i> Orthopedic Applications</h4>
+                            <ul class="condition-list">
+                                <li><i class="fas fa-check-circle"></i> Advanced cartilage regeneration in osteoarthritis</li>
+                                <li><i class="fas fa-check-circle"></i> Severe tendon and ligament tears</li>
+                                <li><i class="fas fa-check-circle"></i> Post-surgical joint recovery</li>
+                                <li><i class="fas fa-check-circle"></i> Chronic rotator cuff injuries</li>
+                                <li><i class="fas fa-check-circle"></i> Complex meniscus tears</li>
+                            </ul>
+                        </div>
+                        <div class="application-column">
+                            <h4><i class="fas fa-heartbeat"></i> Wound Care Applications</h4>
+                            <ul class="condition-list">
+                                <li><i class="fas fa-check-circle"></i> Chronic non-healing wounds</li>
+                                <li><i class="fas fa-check-circle"></i> Diabetic and vascular ulcers</li>
+                                <li><i class="fas fa-check-circle"></i> Post-radiation tissue damage</li>
+                                <li><i class="fas fa-check-circle"></i> Complex surgical wound dehiscence</li>
+                                <li><i class="fas fa-check-circle"></i> Ischemic wound recovery</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-box">
+                    <h4><i class="fas fa-trophy"></i> Expected Results</h4>
+                    <p>Due to its higher potency, GFC therapy often delivers faster and more pronounced results than standard PRP. Many patients report noticeable pain relief and functional improvement within 1-4 weeks. The enhanced concentration of growth factors promotes more rapid tissue regeneration, often requiring fewer treatment sessions. Benefits typically last 8-18 months, with some patients experiencing long-term remission of symptoms.</p>
+                </div>
+
+                <div class="cta-banner">
+                    <h4>Unlock Advanced Healing with GFC</h4>
+                    <p>Experience the next generation of regenerative medicine</p>
+                    <a href="contact.html" class="cta-btn">Book Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hyaluronic Acid -->
+    <section class="section section-alt" id="hyaluronic-acid">
+        <div class="therapy-card">
+            <div class="therapy-header">
+                <div class="therapy-icon">
+                    <i class="fas fa-droplet"></i>
+                </div>
+                <div>
+                    <h2>Hyaluronic Acid (HA) Injections</h2>
+                    <p class="therapy-subtitle">Natural joint lubrication for pain-free movement</p>
+                </div>
+            </div>
+            
+            <div class="therapy-content">
+                <div class="section-block">
+                    <h3><i class="fas fa-water"></i> How It Works</h3>
+                    <p>Hyaluronic acid is a naturally occurring substance found in healthy joint fluid that acts as both a lubricant and shock absorber. As we age or develop arthritis, the natural HA in our joints breaks down, leading to pain, stiffness, and reduced mobility. HA injections (also called viscosupplementation) directly replenish this joint fluid, restoring cushioning between bones, reducing friction, and improving smooth joint movement. The treatment helps protect cartilage and may slow the progression of osteoarthritis.</p>
+                </div>
+
+                <div class="applications-section">
+                    <h3>Clinical Applications</h3>
+                    <div class="applications-columns">
+                        <div class="application-column">
+                            <h4><i class="fas fa-walking"></i> Joint Conditions</h4>
+                            <ul class="condition-list">
+                                <li><i class="fas fa-check-circle"></i> Mild to moderate knee osteoarthritis</li>
+                                <li><i class="fas fa-check-circle"></i> Shoulder joint degeneration</li>
+                                <li><i class="fas fa-check-circle"></i> Hip arthritis (select cases)</li>
+                                <li><i class="fas fa-check-circle"></i> Joint stiffness and reduced range of motion</li>
+                                <li><i class="fas fa-check-circle"></i> Post-injury joint protection</li>
+                                <li><i class="fas fa-check-circle"></i> Early-stage degenerative joint disease</li>
+                            </ul>
+                        </div>
+                        <div class="application-column">
+                            <h4><i class="fas fa-check-double"></i> Ideal Candidates</h4>
+                            <ul class="condition-list">
+                                <li><i class="fas fa-check-circle"></i> Patients seeking to delay joint replacement</li>
+                                <li><i class="fas fa-check-circle"></i> Those with mild to moderate arthritis</li>
+                                <li><i class="fas fa-check-circle"></i> Active individuals wanting pain-free mobility</li>
+                                <li><i class="fas fa-check-circle"></i> Patients unable to tolerate NSAIDs</li>
+                                <li><i class="fas fa-check-circle"></i> Those seeking drug-free pain management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-box">
+                    <h4><i class="fas fa-calendar-check"></i> Expected Results</h4>
+                    <p>Pain relief and improved joint function typically begin 2-4 weeks after treatment and can last 3-6 months or longer. Most patients experience reduced pain, decreased stiffness, improved mobility, and better quality of life. A treatment cycle usually consists of 3-5 weekly injections, with maintenance injections every 6-12 months as needed. Many patients report being able to reduce or eliminate pain medications after HA treatment.</p>
+                </div>
+
+                <div class="cta-banner">
+                    <h4>Restore Joint Comfort with HA Therapy</h4>
+                    <p>Move freely again with natural joint lubrication</p>
+                    <a href="contact.html" class="cta-btn">Book Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ozone Therapy -->
+    <section class="section" id="ozone-therapy">
+        <div class="therapy-card">
+            <div class="therapy-header">
+                <div class="therapy-icon">
+                    <i class="fas fa-wind"></i>
+                </div>
+                <div>
+                    <h2>Ozone Therapy</h2>
+                    <p class="therapy-subtitle">Medical-grade oxygen therapy for healing and regeneration</p>
+                </div>
+            </div>
+            
+            <div class="therapy-content">
+                <div class="section-block">
+                    <h3><i class="fas fa-atom"></i> How It Works</h3>
+                    <p>Ozone therapy uses medical-grade ozone (O₃)—a highly active form of oxygen—to enhance the body's natural healing processes. When administered through injections or topical application, ozone stimulates increased oxygen delivery to tissues, reduces inflammation, fights infections, and promotes cellular regeneration. The therapy works by temporarily creating controlled oxidative stress, which triggers the body's antioxidant systems and healing responses. This dual action of improved oxygenation and immune activation makes ozone therapy remarkably effective for both orthopedic and wound care conditions.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <p><i class="fas fa-shield-virus"></i> Ozone has powerful antimicrobial properties—it effectively eliminates bacteria, viruses, and fungi while being completely safe for human tissues when properly administered.</p>
+                </div>
+
+                <div class="applications-section">
+                    <h3>Clinical Applications</h3>
+                    <div class="applications-columns">
+                        <div class="application-column">
+                            <h4><i class="fas fa-bone"></i> Orthopedic Applications</h4>
+                            <ul class="condition-list">
+                                <li><i class="fas fa-check-circle"></i> Arthritis and chronic joint pain</li>
+                                <li><i class="fas fa-check-circle"></i> Herniated and prolapsed discs</li>
+                                <li><i class="fas fa-check-circle"></i> Chronic back and neck pain</li>
+                                <li><i class="fas fa-check-circle"></i> Muscle stiffness and fibromyalgia</li>
+                                <li><i class="fas fa-check-circle"></i> Tendinitis and bursitis</li>
+                                <li><i class="fas fa-check-circle"></i> Sports injury recovery</li>
+                            </ul>
+                        </div>
+                        <div class="application-column">
+                            <h4><i class="fas fa-band-aid"></i> Wound Care Applications</h4>
+                            <ul class="condition-list">
+                                <li><i class="fas fa-check-circle"></i> Infected and non-healing wounds</li>
+                                <li><i class="fas fa-check-circle"></i> Diabetic foot ulcers</li>
+                                <li><i class="fas fa-check-circle"></i> Ischemic wounds with poor circulation</li>
+                                <li><i class="fas fa-check-circle"></i> Gangrene and tissue necrosis</li>
+                                <li><i class="fas fa-check-circle"></i> Post-surgical wound infections</li>
+                                <li><i class="fas fa-check-circle"></i> Chronic venous and arterial ulcers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-box">
+                    <h4><i class="fas fa-heartbeat"></i> Expected Results</h4>
+                    <p>Ozone therapy delivers progressive improvement over multiple sessions. For orthopedic conditions, patients typically notice reduced pain and improved mobility within 4-8 sessions. For wound care, visible improvements in wound healing, reduced infection, and tissue regeneration often become apparent after 5-10 treatments. The therapy enhances blood flow, reduces inflammation, accelerates tissue repair, and prevents complications. Benefits are cumulative, with optimal results achieved through a complete treatment protocol tailored to individual needs.</p>
+                </div>
+
+                <div class="cta-banner">
+                    <h4>Harness the Healing Power of Ozone</h4>
+                    <p>Experience advanced oxygen therapy for pain relief and tissue regeneration</p>
+                    <a href="contact.html" class="cta-btn">Book Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stem Cell Therapy -->
+    <section class="section section-alt" id="stem-cell">
+        <div class="therapy-card">
+            <div class="therapy-header">
+                <div class="therapy-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <div>
+                    <h2>Stem Cell Therapy</h2>
+                    <p class="therapy-subtitle">Regenerative medicine at the cellular level</p>
+                </div>
+            </div>
+            
+            <div class="therapy-content">
+                <div class="section-block">
+                    <h3><i class="fas fa-microscope"></i> How It Works</h3>
+                    <p>Stem cell therapy represents the pinnacle of regenerative medicine. Stem cells are your body's master cells—they have the unique ability to develop into different types of specialized tissues. In our protocol, stem cells are harvested from your own bone marrow or adipose (fat) tissue, then processed and concentrated in our laboratory. These potent cells are then precisely injected into damaged areas where they work their magic: differentiating into the needed tissue type, secreting powerful growth factors, reducing inflammation, and orchestrating complex tissue repair and regeneration processes that conventional treatments simply cannot achieve.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <p><i class="fas fa-certificate"></i> We use only autologous (your own) stem cells, ensuring complete biological compatibility with zero risk of rejection. Our protocols follow international guidelines and are performed by certified specialists.</p>
+                </div>
+
+                <div class="applications-section">
+                    <h3>Clinical Applications</h3>
+                    <div class="applications-columns">
+                        <div class="application-column">
+                            <h4><i class="fas fa-joints"></i> Orthopedic Applications</h4>
+                            <ul class="condition-list">
+                                <li><i class="fas fa-check-circle"></i> Advanced knee, hip, and shoulder osteoarthritis</li>
+                                <li><i class="fas fa-check-circle"></i> Severe cartilage and meniscus damage</li>
+                                <li><i class="fas fa-check-circle"></i> Degenerative disc disease</li>
+                                <li><i class="fas fa-check-circle"></i> Avascular necrosis (bone death)</li>
+                                <li><i class="fas fa-check-circle"></i> Complex ligament and tendon tears</li>
+                                <li><i class="fas fa-check-circle"></i> Failed previous surgeries</li>
+                            </ul>
+                        </div>
+                        <div class="application-column">
+                            <h4><i class="fas fa-first-aid"></i> Wound Care Applications</h4>
+                            <ul class="condition-list">
+                                <li><i class="fas fa-check-circle"></i> Severe non-healing diabetic ulcers</li>
+                                <li><i class="fas fa-check-circle"></i> Radiation-induced tissue damage</li>
+                                <li><i class="fas fa-check-circle"></i> Deep soft-tissue injuries</li>
+                                <li><i class="fas fa-check-circle"></i> Complex post-surgical wounds</li>
+                                <li><i class="fas fa-check-circle"></i> Limb salvage cases</li>
+                                <li><i class="fas fa-check-circle"></i> Burns and traumatic tissue loss</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h3><i class="fas fa-procedures"></i> Our Stem Cell Process</h3>
+                    <p><strong>1. Consultation & Assessment:</strong> Comprehensive evaluation to determine candidacy for stem cell therapy.</p>
+                    <p><strong>2. Harvesting:</strong> Minimally invasive extraction of stem cells from bone marrow or adipose tissue under local anesthesia.</p>
+                    <p><strong>3. Laboratory Processing:</strong> Cells are concentrated and purified in our certified laboratory using advanced centrifugation and separation techniques.</p>
+                    <p><strong>4. Injection:</strong> Concentrated stem cells are precisely injected into the target area under imaging guidance for optimal placement.</p>
+                    <p><strong>5. Follow-up Care:</strong> Structured rehabilitation and monitoring protocol to optimize healing outcomes.</p>
+                </div>
+
+                <div class="results-box">
+                    <h4><i class="fas fa-chart-line"></i> Expected Results</h4>
+                    <p>Stem cell therapy offers the most comprehensive regenerative potential, but results develop gradually as new tissue forms. Initial improvements in pain and function may be noticed within 4-8 weeks, with continued regeneration occurring over 3-6 months. Many patients experience significant long-term improvement lasting 18-36 months or longer. For orthopedic conditions, benefits include pain reduction, improved joint function, increased cartilage thickness, and delayed need for surgery. For wounds, accelerated healing, reduced infection, and tissue regeneration can prevent amputation and restore function.</p>
+                </div>
+
+                <div class="cta-banner">
+                    <h4>Discover the Future of Healing</h4>
+                    <p>Explore how stem cell therapy can transform your recovery</p>
+                    <a href="contact.html" class="cta-btn">Book Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="section">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); text-align: center; color: var(--primary); font-weight: 900; margin-bottom: 2rem;">Comparing Regenerative Therapies</h2>
+        
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Therapy</th>
+                        <th>Best For</th>
+                        <th>Recovery Time</th>
+                        <th>Duration of Results</th>
+                        <th>Sessions Required</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>PRP Therapy</strong></td>
+                        <td>Mild to moderate joint/tissue damage, sports injuries</td>
+                        <td>2-6 weeks</td>
+                        <td>6-12 months</td>
+                        <td>1-3 sessions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GFC Therapy</strong></td>
+                        <td>Severe tissue damage, chronic conditions</td>
+                        <td>1-4 weeks</td>
+                        <td>8-18 months</td>
+                        <td>1-2 sessions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hyaluronic Acid</strong></td>
+                        <td>Joint lubrication, mild-moderate arthritis</td>
+                        <td>2-4 weeks</td>
+                        <td>3-6 months</td>
+                        <td>3-5 sessions (cycle)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ozone Therapy</strong></td>
+                        <td>Infections, inflammation, circulation issues</td>
+                        <td>4-8 sessions</td>
+                        <td>Cumulative benefits</td>
+                        <td>5-15 sessions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stem Cell Therapy</strong></td>
+                        <td>Advanced degeneration, complex injuries</td>
+                        <td>3-6 months</td>
+                        <td>18-36+ months</td>
+                        <td>1-2 sessions</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Why Choose RMC Section -->
+    <section class="section section-alt">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); text-align: center; color: var(--primary); font-weight: 900; margin-bottom: 3rem;">Why Choose RMC Health for Regenerative Medicine?</h2>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h4><i class="fas fa-user-md"></i> Expert Specialists</h4>
+                <p>Our team includes certified regenerative medicine physicians with extensive experience in biological therapies and advanced injection techniques.</p>
+            </div>
+            <div class="benefit-card">
+                <h4><i class="fas fa-flask"></i> Advanced Laboratory</h4>
+                <p>State-of-the-art processing facilities ensure optimal cell concentration and purity for maximum therapeutic benefit.</p>
+            </div>
+            <div class="benefit-card">
+                <h4><i class="fas fa-clipboard-check"></i> Evidence-Based Protocols</h4>
+                <p>We follow internationally recognized guidelines and continuously update our protocols based on the latest research.</p>
+            </div>
+            <div class="benefit-card">
+                <h4><i class="fas fa-certificate"></i> Safety & Quality</h4>
+                <p>All therapies are FDA/EU-MDR approved with stringent quality control measures and documented safety profiles.</p>
+            </div>
+            <div class="benefit-card">
+                <h4><i class="fas fa-hand-holding-medical"></i> Personalized Care</h4>
+                <p>Every treatment plan is customized based on your specific condition, medical history, and healing goals.</p>
+            </div>
+            <div class="benefit-card">
+                <h4><i class="fas fa-chart-line"></i> Proven Results</h4>
+                <p>Track record of successful outcomes with documented improvements in pain, function, and quality of life.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Statistics -->
+    <section class="section">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); text-align: center; color: var(--primary); font-weight: 900; margin-bottom: 3rem;">Our Regenerative Medicine Impact</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+            <div class="highlight-stat">
+                <div class="stat-number">500+</div>
+                <p>Limbs Saved from Amputation</p>
+            </div>
+            <div class="highlight-stat">
+                <div class="stat-number">85%</div>
+                <p>Patients Avoid Surgery</p>
+            </div>
+            <div class="highlight-stat">
+                <div class="stat-number">92%</div>
+                <p>Patient Satisfaction Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section section-alt">
+        <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); color: var(--primary); font-weight: 900; margin-bottom: 1.5rem;">Ready to Experience Natural Healing?</h2>
+            <p style="font-size: 1.2rem; color: var(--text-gray); margin-bottom: 2rem;">Discover which regenerative therapy is right for you. Schedule a comprehensive consultation with our specialists to explore your personalized healing pathway.</p>
+            
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem;">
+                <a href="contact.html" class="cta-btn" style="display: inline-block;">Schedule Consultation</a>
+                <a href="tel:+919876543210" class="cta-btn" style="display: inline-block; background: var(--primary); color: white;">Call Us Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83c-79-20.83-161.88-61.83-241.82-78.64C661.58,3.88,575.78,2.87,493.39,19.59c-57.8,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.83C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="footer-logo-symbol"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <span>RMC Health</span>
+                </div>
+                <p>Empowering lives through advanced regenerative medicine and non-surgical healing. Where science meets compassion.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-user-doctor"></i> About Us</a></li>
+                        <li><a href="services.html"><i class="fa-solid fa-stethoscope"></i> Services</a></li>
+                        <li><a href="partner.html"><i class="fa-solid fa-handshake"></i> Partner</a></li>
+                        <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Regenerative Therapies</h3>
+                    <ul>
+                        <li><a href="#prp-therapy"><i class="fa-solid fa-syringe"></i> PRP Therapy</a></li>
+                        <li><a href="#gfc-therapy"><i class="fa-solid fa-dna"></i> GFC Therapy</a></li>
+                        <li><a href="#hyaluronic-acid"><i class="fa-solid fa-droplet"></i> Hyaluronic Acid</a></li>
+                        <li><a href="#ozone-therapy"><i class="fa-solid fa-wind"></i> Ozone Therapy</a></li>
+                        <li><a href="#stem-cell"><i class="fa-solid fa-seedling"></i> Stem Cell</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Visit Us</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i> Pune</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Trivandrum</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Kollam</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 <strong>RMC Health</strong> — Crafted with <i class="fa-solid fa-heart"></i> for better living.</p>
+            <div class="footer-policy">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top" id="scrollTop"><i class="fa-solid fa-angle-up"></i></div>
+
+    <script src="footer.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

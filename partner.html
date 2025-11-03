@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner With Us - RMC Health</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Partner Page Styles */
+        .page-header {
+            background: linear-gradient(135deg, rgba(199, 230, 247, 0.95) 0%, rgba(228, 234, 237, 0.9) 60%),
+                        url('https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=2073&auto=format&fit=crop') center/cover;
+            padding: clamp(140px, 20vh, 180px) clamp(1.5rem, 5vw, 6rem) clamp(60px, 10vh, 100px);
+            margin-top: 75px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--text-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .franchise-intro {
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+        }
+
+        .intro-text {
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            line-height: 1.9;
+            color: var(--text-gray);
+            font-weight: 400;
+        }
+
+        .stats-banner {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: clamp(3rem, 6vw, 4rem) clamp(2rem, 5vw, 3rem);
+            border-radius: 30px;
+            margin-bottom: 3rem;
+            box-shadow: 0 15px 50px rgba(13, 79, 92, 0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        .why-partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 25px;
+            box-shadow: 0 6px 30px rgba(13, 79, 92, 0.08);
+            transition: all 0.4s ease;
+            border: 2px solid rgba(201, 150, 84, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(13, 79, 92, 0.12);
+            border-color: var(--accent);
+        }
+
+        .benefit-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .benefit-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .requirements-section {
+            background: linear-gradient(135deg, rgba(13, 79, 92, 0.05), rgba(201, 150, 84, 0.05));
+            padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+            border-radius: 30px;
+            border: 2px solid rgba(201, 150, 84, 0.2);
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .requirement-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(13, 79, 92, 0.06);
+            border-left: 4px solid var(--accent);
+        }
+
+        .requirement-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .requirement-card h4 i {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .requirement-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .requirement-card ul li {
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .requirement-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .process-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            box-shadow: 0 5px 20px rgba(13, 79, 92, 0.3);
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(13, 79, 92, 0.08);
+            border: 2px solid rgba(201, 150, 84, 0.15);
+        }
+
+        .timeline-content h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 2vw, 1.6rem);
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-weight: 800;
+        }
+
+        .timeline-content p {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .form-container {
+            background: white;
+            padding: clamp(2.5rem, 5vw, 4rem);
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(13, 79, 92, 0.1);
+            border: 2px solid rgba(201, 150, 84, 0.15);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .form-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+        }
+
+        .form-header p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid rgba(13, 79, 92, 0.15);
+            border-radius: 15px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(201, 150, 84, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: 1.5rem;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            font-weight: 400;
+            font-size: 0.95rem;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(13, 79, 92, 0.3);
+        }
+
+        .privacy-section {
+            background: linear-gradient(135deg, rgba(13, 79, 92, 0.05), rgba(201, 150, 84, 0.05));
+            padding: clamp(2.5rem, 5vw, 4rem);
+            border-radius: 25px;
+            border: 2px solid rgba(201, 150, 84, 0.2);
+            margin-top: 3rem;
+        }
+
+        .privacy-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .privacy-content {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        .privacy-content h4 {
+            color: var(--primary);
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .privacy-content ul {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .privacy-content ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .highlight-box p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item {
+                grid-template-columns: 60px 1fr;
+                gap: 1rem;
+            }
+
+            .timeline-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+     <header id="header">
+  <nav>
+    <div class="logo">
+      <!-- 🩺 Replace this with your actual logo path -->
+      <img src="assets/rmc c logo  only.png" alt="RMC Health Logo" class="logo-img">
+      <span>RMC Health</span>
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+
+      <li class="dropdown">
+        <a href="about.html" class="dropdown-toggle">About Us</a>
+        <ul class="dropdown-menu">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#vision-mission">Vision & Mission</a></li>
+          <li><a href="#philosophy">Core Philosophy</a></li>
+          <li><a href="#values">Core Values</a></li>
+          <li><a href="#team">Meet Our Team</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="service.html" class="dropdown-toggle">Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="#spine-care">Spine Care</a></li>
+          <li><a href="#ortho-care">Ortho Care</a></li>
+          <li><a href="#wound-care">Wound Care</a></li>
+          <li><a href="#vascular-health">Vascular Health</a></li>
+          <li><a href="#ed-clinic">ED Clinic</a></li>
+          <li><a href="#metabolic-wellness">Metabolic & Wellness</a></li>
+          <li><a href="#physiotherapy">Physiotherapy</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="regenerative.html" class="dropdown-toggle">Regenerative Medicine</a>
+        <ul class="dropdown-menu">
+          <li><a href="#prp-therapy">PRP Therapy</a></li>
+          <li><a href="#gfc-therapy">GFC Therapy</a></li>
+          <li><a href="#hyaluronic-acid">Hyaluronic Acid</a></li>
+          <li><a href="#ozone-therapy">Ozone Therapy</a></li>
+          <li><a href="#stem-cell">Stem Cell Therapy</a></li>
+        </ul>
+      </li>
+
+      <li><a href="partner.html">Partner With Us</a></li>
+      <li><a href="contact .html" class="contact-btn">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Partner With RMC Health</h1>
+        <p>Join India's fastest-growing non-surgical healthcare franchise network</p>
+    </section>
+
+    <!-- Franchise Overview -->
+    <section class="section" id="franchise-overview">
+        <div class="franchise-intro">
+            <p class="intro-text">RMC Health offers a unique franchise opportunity to passionate healthcare entrepreneurs who want to make a difference while building a profitable business. Join our mission to bring world-class, non-surgical healthcare to communities across India.</p>
+        </div>
+
+        <div class="stats-banner">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; text-align: center; margin-bottom: 1rem;">Our Success Story</h2>
+            <p style="text-align: center; font-size: 1.1rem; opacity: 0.95; margin-bottom: 2rem;">Building a network of excellence across India</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Years of Excellence</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Operational Centers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Patients Treated</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Limbs Saved</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Patient Satisfaction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">FDA</div>
+                    <div class="stat-label">Approved Technology</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h3>🎯 Our Franchise Model</h3>
+            <p>We offer a comprehensive franchise package that includes complete setup support, training, marketing, and ongoing operational guidance. Partner with a proven brand that prioritizes patient outcomes and sustainable business growth.</p>
+        </div>
+    </section>
+
+    <!-- Why Partner Section -->
+    <section class="section section-alt" id="why-partner">
+        <div class="section-header">
+            <h2>Why Partner With RMC Health?</h2>
+            <p>Compelling reasons to join India's leading non-surgical healthcare network</p>
+        </div>
+
+        <div class="why-partner-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3>Proven Business Model</h3>
+                <p>Our franchise model has been tested and refined over 10+ years with consistent profitability and growth across all centers.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Growing Market Demand</h3>
+                <p>The non-surgical treatment market is growing at 25% annually in India, with increasing awareness about conservative healthcare options.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h3>Complete Setup Support</h3>
+                <p>From location selection to equipment procurement, interior design to staff recruitment - we handle everything to get you started.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Comprehensive Training</h3>
+                <p>Intensive training programs for you and your team covering clinical protocols, operations, marketing, and patient management.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3>Marketing Support</h3>
+                <p>National brand recognition, digital marketing campaigns, social media content, and local marketing strategies provided continuously.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-microscope"></i>
+                </div>
+                <h3>Advanced Technology</h3>
+                <p>Access to FDA/EU-MDR approved medical equipment and cutting-edge treatment protocols that set you apart from competitors.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h3>Clinical Excellence</h3>
+                <p>Ongoing clinical support from our expert medical team ensuring highest standards of patient care and treatment outcomes.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>High ROI Potential</h3>
+                <p>Attractive profit margins with typical ROI achieved within 18-24 months based on current operational centers' performance.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Protected Territory</h3>
+                <p>Exclusive geographic territory rights ensuring no internal competition and maximum market capture in your area.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-laptop-medical"></i>
+                </div>
+                <h3>Technology Platform</h3>
+                <p>Proprietary practice management software for appointments, patient records, billing, and analytics included in the franchise.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>Ongoing Support</h3>
+                <p>Dedicated franchise support team available 24/7 to assist with operations, troubleshooting, and business development.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Social Impact</h3>
+                <p>Build a profitable business while making a real difference in people's lives by helping them avoid unnecessary surgeries.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Franchise Requirements -->
+    <section class="section" id="requirements">
+        <div class="section-header">
+            <h2>Franchise Requirements</h2>
+            <p>What you need to become an RMC Health franchise partner</p>
+        </div>
+
+        <div class="requirements-section">
+            <div class="requirements-grid">
+                <div class="requirement-card">
+                    <h4><i class="fas fa-user-tie"></i> Ideal Partner Profile</h4>
+                    <ul>
+                        <li>Healthcare background (doctors, physiotherapists) preferred but not mandatory</li>
+                        <li>Entrepreneurial mindset with business acumen</li>
+                        <li>Passion for healthcare and patient wellbeing</li>
+                        <li>Strong local network and community presence</li>
+                        <li>Commitment to quality and ethical practices</li>
+                    </ul>
+                </div>
+
+                <div class="requirement-card">
+                    <h4><i class="fas fa-coins"></i> Financial Investment</h4>
+                    <ul>
+                        <li>Total Investment: ₹50-70 Lakhs (varies by location)</li>
+                        <li>Franchise Fee: ₹15 Lakhs (one-time)</li>
+                        <li>Equipment & Setup: ₹25-35 Lakhs</li>
+                        <li>Working Capital: ₹10-20 Lakhs</li>
+                        <li>Bank financing support available</li>
+                    </ul>
+                </div>
+
+                <div class="requirement-card">
+                    <h4><i class="fas fa-building"></i> Infrastructure</h4>
+                    <ul>
+                        <li>Minimum 1,500-2,000 sq ft space</li>
+                        <li>Ground floor or easily accessible location</li>
+                        <li>Prime medical/commercial area</li>
+                        <li>Adequate parking facilities</li>
+                        <li>Proper power backup and infrastructure</li>
+                    </ul>
+                </div>
+
+                <div class="requirement-card">
+                    <h4><i class="fas fa-users"></i> Team Requirements</h4>
+                    <ul>
+                        <li>Medical Director (MBBS/MD/MS/Physio)</li>
+                        <li>2-3 Physiotherapists</li>
+                        <li>1-2 Nursing Staff</li>
+                        <li>Front Desk/Admin Staff</li>
+                        <li>We assist with recruitment and training</li>
+                    </ul>
+                </div>
+
+                <div class="requirement-card">
+                    <h4><i class="fas fa-certificate"></i> Legal & Compliance</h4>
+                    <ul>
+                        <li>Valid business registration</li>
+                        <li>Medical establishment license</li>
+                        <li>Professional tax registration</li>
+                        <li>GST registration</li>
+                        <li>Necessary local permits and clearances</li>
+                    </ul>
+                </div>
+
+                <div class="requirement-card">
+                    <h4><i class="fas fa-clock"></i> Time Commitment</h4>
+                    <ul>
+                        <li>Full-time involvement in initial 6 months</li>
+                        <li>Regular oversight and management</li>
+                        <li>Participation in training programs</li>
+                        <li>Active involvement in local marketing</li>
+                        <li>Commitment to brand standards</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Franchise Process -->
+    <section class="section section-alt" id="process">
+        <div class="section-header">
+            <h2>Franchise Onboarding Process</h2>
+            <p>Your journey from application to opening day</p>
+        </div>
+
+        <div class="process-timeline">
+            <div class="timeline-item">
+                <div class="timeline-number">1</div>
+                <div class="timeline-content">
+                    <h4>Initial Enquiry & Discussion</h4>
+                    <p>Submit your enquiry through our form. We'll schedule a call to discuss the opportunity, answer your questions, and share detailed information about the franchise model.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">2</div>
+                <div class="timeline-content">
+                    <h4>Application & Evaluation</h4>
+                    <p>Complete the detailed franchise application. Our team evaluates your profile, financial capability, and market potential in your proposed location.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">3</div>
+                <div class="timeline-content">
+                    <h4>Face-to-Face Meeting</h4>
+                    <p>Visit our flagship center for an in-person meeting. Experience our operations firsthand and meet our leadership team to discuss partnership in detail.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">4</div>
+                <div class="timeline-content">
+                    <h4>Agreement & Documentation</h4>
+                    <p>Review and sign the franchise agreement. Complete all legal documentation and make the initial investment. Our legal team ensures transparency throughout.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">5</div>
+                <div class="timeline-content">
+                    <h4>Location & Setup Support</h4>
+                    <p>Our team assists with location finalization, interior design, equipment procurement, and complete center setup as per brand standards.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">6</div>
+                <div class="timeline-content">
+                    <h4>Training & Preparation</h4>
+                    <p>Comprehensive 4-week training program covering clinical protocols, operations, marketing, software systems, and patient management for you and your team.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">7</div>
+                <div class="timeline-content">
+                    <h4>Grand Opening</h4>
+                    <p>Launch your RMC Health center with our complete marketing support. Our team will be present for the opening and initial weeks to ensure smooth operations.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">8</div>
+                <div class="timeline-content">
+                    <h4>Ongoing Support</h4>
+                    <p>Continuous support through regular visits, training updates, marketing campaigns, and 24/7 helpdesk to ensure your sustained growth and success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enquiry Form -->
+    <section class="section" id="enquiry-form">
+        <div class="section-header">
+            <h2>Franchise Enquiry Form</h2>
+            <p>Take the first step towards becoming an RMC Health partner</p>
+        </div>
+
+        <div class="form-container">
+            <div class="form-header">
+                <h2>Express Your Interest</h2>
+                <p>Fill out the form below and our franchise team will contact you within 48 hours</p>
+            </div>
+
+            <form id="franchiseForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">Preferred City *</label>
+                        <input type="text" id="city" name="city" placeholder="e.g., Mumbai, Bangalore, etc." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State *</label>
+                        <select id="state" name="state" required>
+                            <option value="">Select State</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="background">Professional Background *</label>
+                        <select id="background" name="background" required>
+                            <option value="">Select Background</option>
+                            <option value="Doctor (MBBS/MD/MS)">Doctor (MBBS/MD/MS)</option>
+                            <option value="Physiotherapist">Physiotherapist</option>
+                            <option value="Healthcare Professional">Healthcare Professional</option>
+                            <option value="Business/Entrepreneur">Business/Entrepreneur</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="investment">Investment Capacity *</label>
+                        <select id="investment" name="investment" required>
+                            <option value="">Select Range</option>
+                            <option value="30-50 Lakhs">₹30-50 Lakhs</option>
+                            <option value="50-70 Lakhs">₹50-70 Lakhs</option>
+                            <option value="70 Lakhs+">₹70 Lakhs+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">Relevant Experience (if any)</label>
+                    <textarea id="experience" name="experience" placeholder="Tell us about your healthcare or business experience..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Why do you want to partner with RMC Health? *</label>
+                    <textarea id="message" name="message" placeholder="Share your motivation and vision..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="timeline">Expected Timeline to Start *</label>
+                    <select id="timeline" name="timeline" required>
+                        <option value="">Select Timeline</option>
+                        <option value="Immediate (1-3 months)">Immediate (1-3 months)</option>
+                        <option value="Short-term (3-6 months)">Short-term (3-6 months)</option>
+                        <option value="Medium-term (6-12 months)">Medium-term (6-12 months)</option>
+                        <option value="Long-term (12+ months)">Long-term (12+ months)</option>
+                    </select>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="privacy" name="privacy" required>
+                    <label for="privacy">I agree to the <a href="#privacy-statement" style="color: var(--accent); text-decoration: underline;">Privacy Statement</a> and consent to RMC Health contacting me regarding this franchise opportunity. *</label>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Submit Franchise Enquiry
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Privacy Statement -->
+    <section class="section section-alt" id="privacy-statement">
+        <div class="section-header">
+            <h2>Privacy Statement</h2>
+            <p>How we protect and use your franchise enquiry information</p>
+        </div>
+
+        <div class="privacy-section">
+            <h3><i class="fas fa-shield-alt"></i> Franchise Enquiry Privacy Policy</h3>
+            
+            <div class="privacy-content">
+                <h4>Information Collection</h4>
+                <p>When you submit a franchise enquiry form to RMC Health, we collect the following information:</p>
+                <ul>
+                    <li>Personal details (name, contact information)</li>
+                    <li>Location preferences and market interest</li>
+                    <li>Professional background and experience</li>
+                    <li>Financial capacity and investment readiness</li>
+                    <li>Timeline and business objectives</li>
+                </ul>
+
+                <h4>Purpose of Data Collection</h4>
+                <p>We collect and use your information for the following purposes:</p>
+                <ul>
+                    <li><strong>Franchise Evaluation:</strong> To assess your suitability as a potential franchise partner</li>
+                    <li><strong>Communication:</strong> To contact you regarding franchise opportunities and answer your queries</li>
+                    <li><strong>Documentation:</strong> To prepare necessary agreements and legal documents if you proceed</li>
+                    <li><strong>Market Analysis:</strong> To evaluate market potential in your proposed location</li>
+                    <li><strong>Relationship Management:</strong> To maintain records of all franchise enquiries and applications</li>
+                </ul>
+
+                <h4>Data Protection & Security</h4>
+                <p>RMC Health is committed to protecting your personal information:</p>
+                <ul>
+                    <li>All data is stored securely on encrypted servers</li>
+                    <li>Access is restricted to authorized franchise team members only</li>
+                    <li>We implement industry-standard security measures to prevent unauthorized access</li>
+                    <li>Your financial information is handled with strict confidentiality</li>
+                    <li>We comply with applicable data protection laws and regulations</li>
+                </ul>
+
+                <h4>Information Sharing</h4>
+                <p>We do not sell, trade, or rent your personal information. We may share your information only in the following circumstances:</p>
+                <ul>
+                    <li><strong>Internal Teams:</strong> With our franchise development and legal teams for evaluation purposes</li>
+                    <li><strong>Professional Advisors:</strong> With lawyers, accountants, or consultants bound by confidentiality</li>
+                    <li><strong>Legal Requirements:</strong> When required by law or to protect our legal rights</li>
+                    <li><strong>Business Partners:</strong> With financial institutions if you request financing assistance (only with your explicit consent)</li>
+                </ul>
+
+                <h4>Data Retention</h4>
+                <p>We retain your franchise enquiry information for the following periods:</p>
+                <ul>
+                    <li>Active enquiries: Until application is approved, rejected, or withdrawn</li>
+                    <li>Successful partners: Throughout the franchise relationship and 7 years after termination</li>
+                    <li>Unsuccessful applications: 2 years from submission date for potential future opportunities</li>
+                    <li>You may request deletion of your data at any time by contacting us</li>
+                </ul>
+
+                <h4>Your Rights</h4>
+                <p>As a franchise enquirer, you have the following rights:</p>
+                <ul>
+                    <li><strong>Access:</strong> Request a copy of the personal information we hold about you</li>
+                    <li><strong>Correction:</strong> Request correction of any inaccurate or incomplete information</li>
+                    <li><strong>Deletion:</strong> Request deletion of your personal information (subject to legal obligations)</li>
+                    <li><strong>Withdrawal:</strong> Withdraw your franchise application at any time</li>
+                    <li><strong>Objection:</strong> Object to our processing of your personal information</li>
+                    <li><strong>Portability:</strong> Request transfer of your data in a structured format</li>
+                </ul>
+
+                <h4>Communication & Marketing</h4>
+                <p>By submitting the franchise enquiry form:</p>
+                <ul>
+                    <li>You consent to receive communications about the RMC Health franchise opportunity</li>
+                    <li>We may contact you via phone, email, SMS, or WhatsApp regarding your enquiry</li>
+                    <li>You may receive information about franchise events, webinars, and updates</li>
+                    <li>You can opt-out of marketing communications at any time</li>
+                    <li>Essential communications regarding your enquiry cannot be opted out of</li>
+                </ul>
+
+                <h4>Confidentiality</h4>
+                <p>We treat all franchise enquiries with strict confidentiality:</p>
+                <ul>
+                    <li>Your enquiry and personal details are not shared publicly</li>
+                    <li>Financial information and business plans are kept confidential</li>
+                    <li>Any sensitive information shared during discussions is protected</li>
+                    <li>Non-disclosure agreements are available upon request for detailed discussions</li>
+                </ul>
+
+                <h4>Cookies & Website Tracking</h4>
+                <p>Our website may use cookies and tracking technologies:</p>
+                <ul>
+                    <li>To improve user experience and website functionality</li>
+                    <li>To analyze website traffic and user behavior</li>
+                    <li>To personalize content and marketing messages</li>
+                    <li>You can disable cookies in your browser settings</li>
+                </ul>
+
+                <h4>Third-Party Links</h4>
+                <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites. We encourage you to review their privacy policies.</p>
+
+                <h4>Changes to Privacy Policy</h4>
+                <p>We may update this privacy statement periodically. Material changes will be communicated via:</p>
+                <ul>
+                    <li>Email notification to all active enquirers</li>
+                    <li>Prominent notice on our website</li>
+                    <li>Updated date on the privacy statement</li>
+                </ul>
+
+                <h4>Contact for Privacy Concerns</h4>
+                <p>For any questions or concerns about our privacy practices:</p>
+                <ul>
+                    <li><strong>Email:</strong> privacy@rmchealth.com</li>
+                    <li><strong>Phone:</strong> +91 98765 43210</li>
+                    <li><strong>Address:</strong> RMC Health Corporate Office, Pune, Maharashtra</li>
+                    <li><strong>Data Protection Officer:</strong> dpo@rmchealth.com</li>
+                </ul>
+
+                <div style="background: white; padding: 1.5rem; border-radius: 15px; border-left: 4px solid var(--accent); margin-top: 2rem;">
+                    <p style="margin: 0; font-weight: 600; color: var(--primary);">
+                        <i class="fas fa-info-circle"></i> By submitting the franchise enquiry form, you acknowledge that you have read, understood, and agree to this Privacy Statement and consent to the collection, use, and processing of your personal information as described herein.
+                    </p>
+                </div>
+
+                <p style="text-align: center; margin-top: 2rem; font-style: italic; color: var(--text-gray);">
+                    Last Updated: November 2025
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Build Your Healthcare Business?</h2>
+        <p>Join the RMC Health family and make a difference in your community</p>
+        <a href="#enquiry-form" class="btn-primary">Submit Franchise Enquiry</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83c-79-20.83-161.88-61.83-241.82-78.64C661.58,3.88,575.78,2.87,493.39,19.59c-57.8,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.83C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="footer-logo-symbol"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <span>RMC Health</span>
+                </div>
+                <p>Empowering lives through advanced regenerative medicine and non-surgical healing. Where science meets compassion.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-user-doctor"></i> About Us</a></li>
+                        <li><a href="#services"><i class="fa-solid fa-stethoscope"></i> Services</a></li>
+                        <li><a href="partner.html"><i class="fa-solid fa-handshake"></i> Partner</a></li>
+                        <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Treatments</h3>
+                    <ul>
+                        <li><a href="#"><i class="fa-solid fa-bone"></i> Spine Care</a></li>
+                        <li><a href="#"><i class="fa-solid fa-person-running"></i> Ortho</a></li>
+                        <li><a href="#"><i class="fa-solid fa-heart"></i> Vascular</a></li>
+                        <li><a href="#"><i class="fa-solid fa-dna"></i> Regenerative</a></li>
+                        <li><a href="#"><i class="fa-solid fa-venus-mars"></i> Wellness</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Visit Us</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i> Pune</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Trivandrum</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Kollam</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 <strong>RMC Health</strong> — Crafted with <i class="fa-solid fa-heart"></i> for better living.</p>
+            <div class="footer-policy">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top" id="scrollTop"><i class="fa-solid fa-angle-up"></i></div>
+
+    <script src="footer.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Form Submission Handler
+        document.getElementById('franchiseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                city: document.getElementById('city').value,
+                state: document.getElementById('state').value,
+                background: document.getElementById('background').value,
+                investment: document.getElementById('investment').value,
+                experience: document.getElementById('experience').value,
+                message: document.getElementById('message').value,
+                timeline: document.getElementById('timeline').value
+            };
+            
+            // Check privacy consent
+            if (!document.getElementById('privacy').checked) {
+                alert('Please accept the Privacy Statement to continue.');
+                return;
+            }
+            
+            // Show success message
+            alert('Thank you for your interest in RMC Health franchise! Our team will review your application and contact you within 48 hours.');
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

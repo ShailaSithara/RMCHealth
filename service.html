@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - RMC Health</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Services Page Styles */
+        .page-header {
+            background: linear-gradient(135deg, rgba(199, 230, 247, 0.95) 0%, rgba(228, 234, 237, 0.9) 60%),
+                        url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop') center/cover;
+            padding: clamp(140px, 20vh, 180px) clamp(1.5rem, 5vw, 6rem) clamp(60px, 10vh, 100px);
+            margin-top: 75px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--text-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-intro {
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+        }
+
+        .intro-text {
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            line-height: 1.9;
+            color: var(--text-gray);
+            font-weight: 400;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 6px 30px rgba(13, 79, 92, 0.08);
+            transition: all 0.4s ease;
+            border: 2px solid rgba(201, 150, 84, 0.15);
+            margin-bottom: 2rem;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 15px 50px rgba(13, 79, 92, 0.12);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .service-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 2.5rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 900;
+            margin: 0;
+        }
+
+        .service-content {
+            padding: 2.5rem 2rem;
+        }
+
+        .service-description {
+            color: var(--text-gray);
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        .conditions-treated {
+            background: linear-gradient(135deg, rgba(199, 230, 247, 0.2), rgba(228, 234, 237, 0.2));
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .conditions-treated h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 2vw, 1.6rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .conditions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: 1rem;
+        }
+
+        .condition-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-gray);
+            font-size: 0.98rem;
+        }
+
+        .condition-item i {
+            color: var(--accent);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .treatments-section {
+            margin-bottom: 2rem;
+        }
+
+        .treatments-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 2vw, 1.6rem);
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .treatment-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .treatment-pill {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .treatment-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(201, 150, 84, 0.3);
+        }
+
+        .benefits-section {
+            background: white;
+            border: 2px solid rgba(13, 79, 92, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .benefits-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 2vw, 1.6rem);
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: 1rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .benefit-item i {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .benefit-item p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .subspecialty-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(13, 79, 92, 0.1);
+        }
+
+        .subspecialty-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .subspecialty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: 1.5rem;
+        }
+
+        .subspecialty-card {
+            background: linear-gradient(135deg, rgba(199, 230, 247, 0.3), rgba(228, 234, 237, 0.3));
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid rgba(13, 79, 92, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .subspecialty-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(13, 79, 92, 0.1);
+        }
+
+        .subspecialty-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 2vw, 1.4rem);
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .subspecialty-card h4 i {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .subspecialty-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .cta-banner h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 2vw, 1.8rem);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .cta-banner p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .service-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+      <header id="header">
+  <nav>
+    <div class="logo">
+      <!-- 🩺 Replace this with your actual logo path -->
+      <img src="assets/rmc c logo  only.png" alt="RMC Health Logo" class="logo-img">
+      <span>RMC Health</span>
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+
+      <li class="dropdown">
+        <a href="about.html" class="dropdown-toggle">About Us</a>
+        <ul class="dropdown-menu">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#vision-mission">Vision & Mission</a></li>
+          <li><a href="#philosophy">Core Philosophy</a></li>
+          <li><a href="#values">Core Values</a></li>
+          <li><a href="#team">Meet Our Team</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="service.html" class="dropdown-toggle">Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="#spine-care">Spine Care</a></li>
+          <li><a href="#ortho-care">Ortho Care</a></li>
+          <li><a href="#wound-care">Wound Care</a></li>
+          <li><a href="#vascular-health">Vascular Health</a></li>
+          <li><a href="#ed-clinic">ED Clinic</a></li>
+          <li><a href="#metabolic-wellness">Metabolic & Wellness</a></li>
+          <li><a href="#physiotherapy">Physiotherapy</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="regenerative.html" class="dropdown-toggle">Regenerative Medicine</a>
+        <ul class="dropdown-menu">
+          <li><a href="#prp-therapy">PRP Therapy</a></li>
+          <li><a href="#gfc-therapy">GFC Therapy</a></li>
+          <li><a href="#hyaluronic-acid">Hyaluronic Acid</a></li>
+          <li><a href="#ozone-therapy">Ozone Therapy</a></li>
+          <li><a href="#stem-cell">Stem Cell Therapy</a></li>
+        </ul>
+      </li>
+
+      <li><a href="partner.html">Partner With Us</a></li>
+      <li><a href="contact .html" class="contact-btn">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Our Services</h1>
+        <p>Comprehensive non-surgical healthcare solutions for your complete wellbeing</p>
+    </section>
+
+    <!-- Services Intro -->
+    <section class="section">
+        <div class="services-intro">
+            <p class="intro-text">At RMC Health, we offer a wide range of evidence-based, non-surgical treatments designed to address various health conditions. Our multidisciplinary approach combines advanced medical technologies with expert care to deliver optimal outcomes without invasive procedures.</p>
+        </div>
+    </section>
+
+    <!-- Spine Care Service -->
+    <section class="section" id="spine-care">
+        <div class="service-card">
+            <div class="service-header">
+                <div class="service-icon">
+                    <i class="fas fa-spine"></i>
+                </div>
+                <div>
+                    <h2>Spine Care</h2>
+                    <p style="margin: 0; opacity: 0.95; font-size: 1.1rem;">Non-surgical solutions for back and neck pain</p>
+                </div>
+            </div>
+            
+            <div class="service-content">
+                <p class="service-description">Our comprehensive spine care program offers advanced, non-surgical treatments for various spinal conditions. We focus on pain relief, functional restoration, and preventing the progression of spinal disorders through evidence-based therapies.</p>
+                
+                <div class="conditions-treated">
+                    <h3>Conditions We Treat</h3>
+                    <div class="conditions-grid">
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Herniated/Slipped Disc</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Cervical Spondylosis</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Lumbar Spondylosis</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Sciatica Pain</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Spinal Stenosis</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Degenerative Disc Disease</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Chronic Back Pain</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Neck Pain & Stiffness</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Postural Dysfunction</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="treatments-section">
+                    <h3>Treatment Modalities</h3>
+                    <div class="treatment-pills">
+                        <span class="treatment-pill">IFT (Interferential Therapy)</span>
+                        <span class="treatment-pill">TENS</span>
+                        <span class="treatment-pill">Spinal Decompression</span>
+                        <span class="treatment-pill">Ozone Therapy</span>
+                        <span class="treatment-pill">PRP Injections</span>
+                        <span class="treatment-pill">Manual Therapy</span>
+                        <span class="treatment-pill">Core Strengthening</span>
+                        <span class="treatment-pill">Traction Therapy</span>
+                    </div>
+                </div>
+
+                <div class="benefits-section">
+                    <h3>Benefits of Our Spine Care</h3>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Avoid risky spinal surgery and long recovery times</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Significant pain reduction within weeks</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Improved mobility and flexibility</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Personalized treatment plans</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Long-term relief and prevention strategies</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Return to normal activities faster</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-banner">
+                    <h4>Ready to Live Pain-Free?</h4>
+                    <p>Schedule a consultation with our spine care specialists today</p>
+                    <a href="contact.html" class="cta-btn">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ortho Care Service -->
+    <section class="section section-alt" id="ortho-care">
+        <div class="service-card">
+            <div class="service-header">
+                <div class="service-icon">
+                    <i class="fas fa-bone"></i>
+                </div>
+                <div>
+                    <h2>Ortho Care</h2>
+                    <p style="margin: 0; opacity: 0.95; font-size: 1.1rem;">Conservative treatment for joint and musculoskeletal disorders</p>
+                </div>
+            </div>
+            
+            <div class="service-content">
+                <p class="service-description">Our orthopedic care focuses on preserving joint function and avoiding surgical interventions through advanced regenerative therapies and rehabilitation protocols. We help patients with arthritis, sports injuries, and degenerative joint conditions maintain active, pain-free lives.</p>
+                
+                <div class="conditions-treated">
+                    <h3>Conditions We Treat</h3>
+                    <div class="conditions-grid">
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Knee Osteoarthritis</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Hip Arthritis</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Shoulder Pain & Frozen Shoulder</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Tennis/Golfer's Elbow</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Sports Injuries</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Ligament Tears</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Plantar Fasciitis</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Carpal Tunnel Syndrome</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Muscle Strains & Sprains</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="treatments-section">
+                    <h3>Treatment Modalities</h3>
+                    <div class="treatment-pills">
+                        <span class="treatment-pill">PRP Therapy</span>
+                        <span class="treatment-pill">Hyaluronic Acid Injections</span>
+                        <span class="treatment-pill">Ozone Therapy</span>
+                        <span class="treatment-pill">Shockwave Therapy</span>
+                        <span class="treatment-pill">Ultrasound Therapy</span>
+                        <span class="treatment-pill">Joint Mobilization</span>
+                        <span class="treatment-pill">Strengthening Programs</span>
+                        <span class="treatment-pill">Sports Rehabilitation</span>
+                    </div>
+                </div>
+
+                <div class="benefits-section">
+                    <h3>Benefits of Our Ortho Care</h3>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Avoid joint replacement surgery</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Natural healing with regenerative therapies</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Improved joint function and mobility</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Reduced pain and inflammation</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Faster recovery from injuries</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Return to sports and activities</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-banner">
+                    <h4>Don't Let Joint Pain Stop You</h4>
+                    <p>Explore non-surgical solutions with our orthopedic specialists</p>
+                    <a href="contact.html" class="cta-btn">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wound Care Service -->
+    <section class="section" id="wound-care">
+        <div class="service-card">
+            <div class="service-header">
+                <div class="service-icon">
+                    <i class="fas fa-band-aid"></i>
+                </div>
+                <div>
+                    <h2>Wound Care</h2>
+                    <p style="margin: 0; opacity: 0.95; font-size: 1.1rem;">Advanced healing for chronic and non-healing wounds</p>
+                </div>
+            </div>
+            
+            <div class="service-content">
+                <p class="service-description">Our specialized wound care program combines advanced therapies to promote faster healing of chronic and non-healing wounds. We've successfully saved over 500 limbs from amputation through our comprehensive approach to diabetic foot ulcers and vascular wounds.</p>
+                
+                <div class="conditions-treated">
+                    <h3>Conditions We Treat</h3>
+                    <div class="conditions-grid">
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Diabetic Foot Ulcers</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Pressure Ulcers (Bedsores)</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Venous Leg Ulcers</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Arterial Ulcers</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Post-Surgical Wounds</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Traumatic Wounds</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Infected Wounds</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Gangrene</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Burn Injuries</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="treatments-section">
+                    <h3>Treatment Modalities</h3>
+                    <div class="treatment-pills">
+                        <span class="treatment-pill">Ozone Therapy</span>
+                        <span class="treatment-pill">PRP Treatment</span>
+                        <span class="treatment-pill">Vacuum-Assisted Closure (VAC)</span>
+                        <span class="treatment-pill">Hyperbaric Oxygen Therapy</span>
+                        <span class="treatment-pill">Debridement</span>
+                        <span class="treatment-pill">Advanced Dressings</span>
+                        <span class="treatment-pill">Bioengineered Skin</span>
+                        <span class="treatment-pill">Compression Therapy</span>
+                    </div>
+                </div>
+
+                <div class="benefits-section">
+                    <h3>Benefits of Our Wound Care</h3>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Prevent limb amputation</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Faster wound healing</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Reduced infection risk</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Minimized scarring</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Improved quality of life</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Comprehensive diabetic foot care</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-banner">
+                    <h4>Healing Starts Here</h4>
+                    <p>Get expert wound care that saves limbs and restores lives</p>
+                    <a href="contact.html" class="cta-btn">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preventive Vascular Health Service -->
+    <section class="section section-alt" id="vascular-health">
+        <div class="service-card">
+            <div class="service-header">
+                <div class="service-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div>
+                    <h2>Preventive Vascular Health</h2>
+                    <p style="margin: 0; opacity: 0.95; font-size: 1.1rem;">Non-invasive management of circulatory disorders</p>
+                </div>
+            </div>
+            
+            <div class="service-content">
+                <p class="service-description">Our vascular health program focuses on preventing and managing circulatory disorders through non-surgical interventions. We help improve blood flow, reduce complications, and enhance overall vascular health without invasive procedures.</p>
+                
+                <div class="conditions-treated">
+                    <h3>Conditions We Treat</h3>
+                    <div class="conditions-grid">
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Varicose Veins</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Deep Vein Thrombosis (DVT)</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Peripheral Artery Disease</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Chronic Venous Insufficiency</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Spider Veins</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Lymphedema</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Circulation Problems</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Diabetic Vascular Complications</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="treatments-section">
+                    <h3>Treatment Modalities</h3>
+                    <div class="treatment-pills">
+                        <span class="treatment-pill">Ozone Therapy</span>
+                        <span class="treatment-pill">EECP (Enhanced External Counterpulsation)</span>
+                        <span class="treatment-pill">Compression Therapy</span>
+                        <span class="treatment-pill">Vascular Physiotherapy</span>
+                        <span class="treatment-pill">Lifestyle Modification</span>
+                        <span class="treatment-pill">Exercise Programs</span>
+                        <span class="treatment-pill">Nutritional Counseling</span>
+                        <span class="treatment-pill">Preventive Screening</span>
+                    </div>
+                </div>
+
+                <div class="benefits-section">
+                    <h3>Benefits of Our Vascular Care</h3>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Improved blood circulation</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Reduced leg pain and swelling</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Prevention of serious complications</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Non-invasive treatment options</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Enhanced quality of life</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Personalized prevention plans</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-banner">
+                    <h4>Protect Your Vascular Health</h4>
+                    <p>Schedule a vascular screening and consultation today</p>
+                    <a href="contact.html" class="cta-btn">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ED Clinic (Men's Health) Service -->
+    <section class="section" id="ed-clinic">
+        <div class="service-card">
+            <div class="service-header">
+                <div class="service-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <div>
+                    <h2>ED Clinic (Men's Health)</h2>
+                    <p style="margin: 0; opacity: 0.95; font-size: 1.1rem;">Confidential treatment for erectile dysfunction</p>
+                </div>
+            </div>
+            
+            <div class="service-content">
+                <p class="service-description">Our specialized men's health clinic offers discreet, evidence-based treatment for erectile dysfunction. We provide comprehensive care that addresses both physical and psychological factors, helping men restore confidence and improve intimate relationships.</p>
+                
+                <div class="conditions-treated">
+                    <h3>Conditions We Treat</h3>
+                    <div class="conditions-grid">
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Erectile Dysfunction (ED)</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Performance Anxiety</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Low Libido</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Premature Ejaculation</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Testosterone Deficiency</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Vascular-related ED</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Diabetes-related ED</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Age-related Sexual Decline</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="treatments-section">
+                    <h3>Treatment Modalities</h3>
+                    <div class="treatment-pills">
+                        <span class="treatment-pill">PRP Therapy (P-Shot)</span>
+                        <span class="treatment-pill">Shockwave Therapy</span>
+                        <span class="treatment-pill">Ozone Therapy</span>
+                        <span class="treatment-pill">Hormone Optimization</span>
+                        <span class="treatment-pill">Lifestyle Counseling</span>
+                        <span class="treatment-pill">Pelvic Floor Therapy</span>
+                        <span class="treatment-pill">Nutritional Support</span>
+                        <span class="treatment-pill">Psychological Counseling</span>
+                    </div>
+                </div>
+
+                <div class="benefits-section">
+                    <h3>Benefits of Our ED Treatment</h3>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Natural, non-pharmaceutical options</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Long-lasting results</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Improved sexual performance</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Enhanced confidence and self-esteem</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Comprehensive, holistic approach</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Complete confidentiality assured</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-banner">
+                    <h4>Reclaim Your Confidence</h4>
+                    <p>Book a confidential consultation with our men's health specialists</p>
+                    <a href="contact.html" class="cta-btn">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- R.Ex MediFit (Metabolic & Women's Wellness) Service -->
+    <section class="section section-alt" id="metabolic-wellness">
+        <div class="service-card">
+            <div class="service-header">
+                <div class="service-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <div>
+                    <h2>R.Ex MediFit (Metabolic & Women's Wellness)</h2>
+                    <p style="margin: 0; opacity: 0.95; font-size: 1.1rem;">Holistic health optimization for metabolic disorders and women's wellness</p>
+                </div>
+            </div>
+            
+            <div class="service-content">
+                <p class="service-description">Our R.Ex MediFit program is a comprehensive wellness solution focusing on metabolic health optimization and specialized women's health services. We combine medical treatments, nutrition, exercise, and lifestyle modifications to help you achieve optimal health and vitality.</p>
+                
+                <div class="conditions-treated">
+                    <h3>Conditions We Treat</h3>
+                    <div class="conditions-grid">
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Diabetes Management</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Obesity & Weight Management</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Metabolic Syndrome</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>PCOS (Polycystic Ovary Syndrome)</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Thyroid Disorders</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Hormonal Imbalances</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Menopause Management</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Chronic Fatigue</span>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Nutritional Deficiencies</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="treatments-section">
+                    <h3>Treatment Modalities</h3>
+                    <div class="treatment-pills">
+                        <span class="treatment-pill">Medical Nutrition Therapy</span>
+                        <span class="treatment-pill">Personalized Exercise Programs</span>
+                        <span class="treatment-pill">Hormone Balancing</span>
+                        <span class="treatment-pill">Metabolic Testing</span>
+                        <span class="treatment-pill">Body Composition Analysis</span>
+                        <span class="treatment-pill">Lifestyle Coaching</span>
+                        <span class="treatment-pill">Stress Management</span>
+                        <span class="treatment-pill">Sleep Optimization</span>
+                    </div>
+                </div>
+
+                <div class="benefits-section">
+                    <h3>Benefits of R.Ex MediFit</h3>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Sustainable weight loss and maintenance</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Improved metabolic health markers</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Enhanced energy and vitality</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Hormonal balance restoration</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Customized wellness plans</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Long-term health transformation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-banner">
+                    <h4>Transform Your Health & Wellness</h4>
+                    <p>Start your journey to optimal metabolic health today</p>
+                    <a href="contact.html" class="cta-btn">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Physiotherapy & Rehabilitation Service -->
+    <section class="section" id="physiotherapy">
+        <div class="service-card">
+            <div class="service-header">
+                <div class="service-icon">
+                    <i class="fas fa-walking"></i>
+                </div>
+                <div>
+                    <h2>Physiotherapy & Rehabilitation</h2>
+                    <p style="margin: 0; opacity: 0.95; font-size: 1.1rem;">Comprehensive rehabilitation services across multiple specialties</p>
+                </div>
+            </div>
+            
+            <div class="service-content">
+                <p class="service-description">Our physiotherapy and rehabilitation department offers specialized care across multiple domains. Our certified physiotherapists use evidence-based techniques to help patients recover from injuries, manage chronic conditions, and optimize physical function.</p>
+                
+                <div class="treatments-section">
+                    <h3>Core Treatment Modalities</h3>
+                    <div class="treatment-pills">
+                        <span class="treatment-pill">Manual Therapy</span>
+                        <span class="treatment-pill">Therapeutic Exercise</span>
+                        <span class="treatment-pill">Electrotherapy</span>
+                        <span class="treatment-pill">Ultrasound Therapy</span>
+                        <span class="treatment-pill">Heat/Cold Therapy</span>
+                        <span class="treatment-pill">Taping & Bracing</span>
+                        <span class="treatment-pill">Gait Training</span>
+                        <span class="treatment-pill">Balance & Coordination</span>
+                    </div>
+                </div>
+
+                <div class="subspecialty-section">
+                    <h3>Our Physiotherapy Specialties</h3>
+                    
+                    <div class="subspecialty-grid">
+                        <div class="subspecialty-card">
+                            <h4>
+                                <i class="fas fa-brain"></i>
+                                Neurology Physiotherapy
+                            </h4>
+                            <p><strong>Conditions Treated:</strong> Stroke rehabilitation, Parkinson's disease, multiple sclerosis, spinal cord injuries, peripheral neuropathy, traumatic brain injury, balance disorders.</p>
+                            <p><strong>Focus:</strong> Restoring motor function, improving mobility, enhancing neuroplasticity, and maximizing independence in daily activities.</p>
+                        </div>
+
+                        <div class="subspecialty-card">
+                            <h4>
+                                <i class="fas fa-heartbeat"></i>
+                                Cardiac Rehabilitation
+                            </h4>
+                            <p><strong>Conditions Treated:</strong> Post-heart attack recovery, heart failure, post-cardiac surgery, angina, coronary artery disease, hypertension management.</p>
+                            <p><strong>Focus:</strong> Supervised exercise programs, cardiovascular conditioning, lifestyle modification, and risk factor management for heart health.</p>
+                        </div>
+
+                        <div class="subspecialty-card">
+                            <h4>
+                                <i class="fas fa-lungs"></i>
+                                Pulmonary Rehabilitation
+                            </h4>
+                            <p><strong>Conditions Treated:</strong> COPD, asthma, post-COVID lung complications, chronic bronchitis, pulmonary fibrosis, breathlessness.</p>
+                            <p><strong>Focus:</strong> Breathing exercises, respiratory muscle training, endurance building, and oxygen optimization techniques.</p>
+                        </div>
+
+                        <div class="subspecialty-card">
+                            <h4>
+                                <i class="fas fa-child"></i>
+                                Paediatric Physiotherapy
+                            </h4>
+                            <p><strong>Conditions Treated:</strong> Cerebral palsy, developmental delays, muscular dystrophy, Down syndrome, torticollis, sports injuries in children.</p>
+                            <p><strong>Focus:</strong> Age-appropriate developmental interventions, motor skill enhancement, posture correction, and family education.</p>
+                        </div>
+
+                        <div class="subspecialty-card">
+                            <h4>
+                                <i class="fas fa-user-clock"></i>
+                                Geriatric Physiotherapy
+                            </h4>
+                            <p><strong>Conditions Treated:</strong> Osteoporosis, arthritis, fall prevention, balance disorders, age-related weakness, joint stiffness.</p>
+                            <p><strong>Focus:</strong> Maintaining independence, fall risk reduction, strength training, and improving quality of life in elderly patients.</p>
+                        </div>
+
+                        <div class="subspecialty-card">
+                            <h4>
+                                <i class="fas fa-venus"></i>
+                                Gynecology & Women's Health Physiotherapy
+                            </h4>
+                            <p><strong>Conditions Treated:</strong> Pelvic floor dysfunction, urinary incontinence, pregnancy-related pain, postpartum recovery, pelvic organ prolapse.</p>
+                            <p><strong>Focus:</strong> Pelvic floor strengthening, prenatal and postnatal care, core rehabilitation, and women's wellness optimization.</p>
+                        </div>
+
+                        <div class="subspecialty-card">
+                            <h4>
+                                <i class="fas fa-bone"></i>
+                                Orthopedic Physiotherapy
+                            </h4>
+                            <p><strong>Conditions Treated:</strong> Post-surgical rehabilitation, fractures, ligament injuries, joint replacements, sports injuries, chronic pain.</p>
+                            <p><strong>Focus:</strong> Pain management, mobility restoration, strength building, and functional recovery for musculoskeletal conditions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefits-section" style="margin-top: 3rem;">
+                    <h3>Benefits of Our Physiotherapy Services</h3>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Specialized care across multiple disciplines</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Certified and experienced physiotherapists</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Evidence-based treatment protocols</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Personalized rehabilitation programs</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>State-of-the-art equipment and facilities</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>Comprehensive recovery support</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-banner">
+                    <h4>Begin Your Recovery Journey</h4>
+                    <p>Experience expert physiotherapy care tailored to your needs</p>
+                    <a href="contact.html" class="cta-btn">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Experience Non-Surgical Healing?</h2>
+        <p>Choose the service that's right for you and take the first step towards better health</p>
+        <a href="contact.html" class="btn-primary">Schedule Your Consultation</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83c-79-20.83-161.88-61.83-241.82-78.64C661.58,3.88,575.78,2.87,493.39,19.59c-57.8,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.83C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="footer-logo-symbol"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <span>RMC Health</span>
+                </div>
+                <p>Empowering lives through advanced regenerative medicine and non-surgical healing. Where science meets compassion.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-user-doctor"></i> About Us</a></li>
+                        <li><a href="services.html"><i class="fa-solid fa-stethoscope"></i> Services</a></li>
+                        <li><a href="partner.html"><i class="fa-solid fa-handshake"></i> Partner</a></li>
+                        <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Treatments</h3>
+                    <ul>
+                        <li><a href="#spine-care"><i class="fa-solid fa-bone"></i> Spine Care</a></li>
+                        <li><a href="#ortho-care"><i class="fa-solid fa-person-running"></i> Ortho</a></li>
+                        <li><a href="#vascular-health"><i class="fa-solid fa-heart"></i> Vascular</a></li>
+                        <li><a href="#wound-care"><i class="fa-solid fa-dna"></i> Wound Care</a></li>
+                        <li><a href="#metabolic-wellness"><i class="fa-solid fa-venus-mars"></i> Wellness</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Visit Us</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i> Pune</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Trivandrum</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Kollam</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 <strong>RMC Health</strong> — Crafted with <i class="fa-solid fa-heart"></i> for better living.</p>
+            <div class="footer-policy">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top" id="scrollTop"><i class="fa-solid fa-angle-up"></i></div>
+
+    <script src="footer.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - RMC Health</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+    <style>
+        /* Additional styles for About page */
+        .page-header {
+            background: linear-gradient(135deg, rgba(199, 230, 247, 0.95) 0%, rgba(228, 234, 237, 0.9) 60%),
+                        url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=2091&auto=format&fit=crop') center/cover;
+            padding: clamp(140px, 20vh, 180px) clamp(1.5rem, 5vw, 6rem) clamp(60px, 10vh, 100px);
+            margin-top: 75px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        .intro-text {
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            line-height: 1.9;
+            color: var(--text-gray);
+            font-weight: 400;
+        }
+
+        .philosophy-banner {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(13, 79, 92, 0.2);
+            margin-bottom: 3rem;
+        }
+
+        .philosophy-tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .philosophy-description {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.9;
+            max-width: 1000px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 25px;
+            box-shadow: 0 6px 30px rgba(13, 79, 92, 0.08);
+            transition: all 0.4s ease;
+            border: 2px solid rgba(201, 150, 84, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(13, 79, 92, 0.12);
+            border-color: var(--accent);
+        }
+
+        .value-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .value-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 6px 30px rgba(13, 79, 92, 0.08);
+            transition: all 0.4s ease;
+            border: 2px solid rgba(201, 150, 84, 0.15);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(13, 79, 92, 0.12);
+            border-color: var(--accent);
+        }
+
+        .team-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+        }
+
+        .team-info {
+            padding: 2rem 1.5rem;
+        }
+
+        .team-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .team-role {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .team-bio {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .policy-section {
+            background: linear-gradient(135deg, rgba(13, 79, 92, 0.05), rgba(201, 150, 84, 0.05));
+            padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+            border-radius: 30px;
+            border: 2px solid rgba(201, 150, 84, 0.2);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .policy-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .policy-content {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .policy-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(13, 79, 92, 0.06);
+            border-left: 4px solid var(--accent);
+        }
+
+        .policy-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .policy-item h4::before {
+            content: '✓';
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .policy-item p {
+            color: var(--text-gray);
+            line-height: 1.8;
+            font-size: 0.98rem;
+        }
+
+        .policy-item ul {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        .policy-item ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .certifications-banner {
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+      <header id="header">
+  <nav>
+    <div class="logo">
+      <!-- 🩺 Replace this with your actual logo path -->
+      <img src="assets/rmc c logo  only.png" alt="RMC Health Logo" class="logo-img">
+      <span>RMC Health</span>
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+
+      <li class="dropdown">
+        <a href="about.html" class="dropdown-toggle">About Us</a>
+        <ul class="dropdown-menu">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#vision-mission">Vision & Mission</a></li>
+          <li><a href="#philosophy">Core Philosophy</a></li>
+          <li><a href="#values">Core Values</a></li>
+          <li><a href="#team">Meet Our Team</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="service.html" class="dropdown-toggle">Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="#spine-care">Spine Care</a></li>
+          <li><a href="#ortho-care">Ortho Care</a></li>
+          <li><a href="#wound-care">Wound Care</a></li>
+          <li><a href="#vascular-health">Vascular Health</a></li>
+          <li><a href="#ed-clinic">ED Clinic</a></li>
+          <li><a href="#metabolic-wellness">Metabolic & Wellness</a></li>
+          <li><a href="#physiotherapy">Physiotherapy</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="regenerative.html" class="dropdown-toggle">Regenerative Medicine</a>
+        <ul class="dropdown-menu">
+          <li><a href="#prp-therapy">PRP Therapy</a></li>
+          <li><a href="#gfc-therapy">GFC Therapy</a></li>
+          <li><a href="#hyaluronic-acid">Hyaluronic Acid</a></li>
+          <li><a href="#ozone-therapy">Ozone Therapy</a></li>
+          <li><a href="#stem-cell">Stem Cell Therapy</a></li>
+        </ul>
+      </li>
+
+      <li><a href="partner.html">Partner With Us</a></li>
+      <li><a href="contact .html" class="contact-btn">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>About RMC Health</h1>
+        <p>Leading the way in holistic, non-surgical healthcare since 2014</p>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="section" id="overview">
+        <div class="about-intro">
+            <p class="intro-text">RMC Health is a pioneering multi-specialty medical and wellness center dedicated to providing evidence-based, non-surgical treatments. We believe in empowering the body's natural healing capabilities through advanced medical technologies and compassionate care.</p>
+        </div>
+        
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-icon">🏥</div>
+                <h3>Our Overview</h3>
+                <p>Established in 2014, RMC Health has grown to become a trusted name in non-invasive medical care across India. With three state-of-the-art centers and a team of highly qualified specialists, we've successfully treated over 10,000 patients and saved 500+ limbs from amputation.</p>
+                <p style="margin-top: 1rem;">Our commitment to "Patient First, Surgery Last" drives everything we do, ensuring that every treatment plan prioritizes your wellbeing and natural recovery.</p>
+            </div>
+
+            <div class="card" id="vision-mission">
+                <div class="card-icon">🎯</div>
+                <h3>Vision & Mission</h3>
+                <p><strong>Vision:</strong> To be India's most trusted center for holistic, non-surgical healthcare, making advanced medical treatments accessible and affordable to all.</p>
+                <p style="margin-top: 1rem;"><strong>Mission:</strong> To deliver evidence-based, non-invasive medical care that empowers the body's natural healing process, helping patients avoid unnecessary surgeries while achieving lasting recovery and improved quality of life.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Philosophy Section -->
+    <section class="section section-alt" id="philosophy">
+        <div class="section-header">
+            <h2>Our Core Philosophy</h2>
+            <p>The principles that guide our approach to healthcare</p>
+        </div>
+        
+        <div class="philosophy-banner">
+            <h3 class="philosophy-tagline">"Patient First. Surgery Last. Body Heals & We Assist."</h3>
+            <p class="philosophy-description">We believe that the human body has an incredible capacity to heal itself when given the right support. Our role is to facilitate that natural healing process through advanced, non-invasive therapies, comprehensive rehabilitation, and personalized care.</p>
+        </div>
+
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Patient-Centric Care</h3>
+                <p>Every decision we make starts and ends with the patient. We prioritize your dignity, comfort, and long-term wellbeing over quick fixes. Your health journey is unique, and so is our approach to your treatment.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔬</div>
+                <h3>Science with Soul</h3>
+                <p>We combine cutting-edge, evidence-based medicine with deep empathy and compassion. Every treatment protocol is backed by scientific research while being delivered with genuine care for your physical and emotional wellbeing.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌱</div>
+                <h3>Natural Healing First</h3>
+                <p>We exhaust all conservative, non-invasive treatment options before considering surgical intervention. Our therapies work with your body's natural healing mechanisms rather than against them.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⚕️</div>
+                <h3>Surgery as Last Resort</h3>
+                <p>While we respect the role of surgery in healthcare, we believe it should be the last option, not the first. Our success rate in helping patients avoid unnecessary surgeries speaks to this commitment.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🤝</div>
+                <h3>Collaborative Approach</h3>
+                <p>Healing is a partnership. We work closely with you, involving you in every decision, educating you about your condition, and empowering you to take an active role in your recovery journey.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💎</div>
+                <h3>Excellence & Innovation</h3>
+                <p>We continuously invest in the latest FDA/EU-MDR approved technologies and training to ensure you receive world-class care. Our commitment to excellence drives us to constantly improve and innovate.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="section" id="values">
+        <div class="section-header">
+            <h2>Our Core Values</h2>
+            <p>The values that define who we are and how we serve</p>
+        </div>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-number">01</div>
+                <h3>Integrity</h3>
+                <p>We maintain the highest ethical standards in all our interactions. Honesty, transparency, and trustworthiness are non-negotiable in our practice.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-number">02</div>
+                <h3>Compassion</h3>
+                <p>We treat every patient with empathy, kindness, and respect. Your pain is our concern, and your healing is our joy.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-number">03</div>
+                <h3>Excellence</h3>
+                <p>We strive for excellence in everything we do—from clinical outcomes to patient experience. Good enough is never good enough for us.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-number">04</div>
+                <h3>Innovation</h3>
+                <p>We embrace new technologies and treatment methods that can improve patient outcomes while staying true to our non-invasive approach.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-number">05</div>
+                <h3>Accessibility</h3>
+                <p>Quality healthcare should be accessible to all. We work to make our advanced treatments affordable and available to everyone who needs them.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-number">06</div>
+                <h3>Accountability</h3>
+                <p>We take responsibility for our outcomes and continuously measure our success through patient satisfaction and clinical results.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Policy Statement Section -->
+    <section class="section section-alt" id="policy">
+        <div class="section-header">
+            <h2>Our Policy Statement</h2>
+            <p>Our commitment to quality, safety, and patient-centered care</p>
+        </div>
+        
+        <div class="policy-section">
+            <h3>RMC Health Quality & Safety Policies</h3>
+            
+            <div class="policy-content">
+                <div class="policy-item">
+                    <h4>Patient Safety & Care Standards</h4>
+                    <p>We maintain the highest standards of patient safety through:</p>
+                    <ul>
+                        <li>Strict infection control protocols in all treatment areas</li>
+                        <li>Use of only FDA/EU-MDR approved medical devices and technologies</li>
+                        <li>Regular equipment calibration and maintenance schedules</li>
+                        <li>Comprehensive staff training and certification programs</li>
+                        <li>Continuous monitoring of patient outcomes and satisfaction</li>
+                    </ul>
+                </div>
+
+                <div class="policy-item">
+                    <h4>Ethical Treatment Standards</h4>
+                    <p>Our ethical framework ensures:</p>
+                    <ul>
+                        <li>Informed consent for all procedures and treatments</li>
+                        <li>Transparent communication about treatment options and costs</li>
+                        <li>No unnecessary procedures or treatments recommended</li>
+                        <li>Patient privacy and confidentiality strictly maintained</li>
+                        <li>Non-discriminatory care for all patients regardless of background</li>
+                    </ul>
+                </div>
+
+                <div class="policy-item">
+                    <h4>Evidence-Based Practice</h4>
+                    <p>We commit to scientific excellence through:</p>
+                    <ul>
+                        <li>Treatments backed by peer-reviewed clinical research</li>
+                        <li>Regular review of treatment protocols based on latest evidence</li>
+                        <li>Participation in continuing medical education programs</li>
+                        <li>Collaboration with leading medical institutions</li>
+                        <li>Documentation of outcomes for quality improvement</li>
+                    </ul>
+                </div>
+
+                <div class="policy-item">
+                    <h4>Patient Rights & Responsibilities</h4>
+                    <p>We uphold patient rights including:</p>
+                    <ul>
+                        <li>Right to receive complete information about condition and treatment</li>
+                        <li>Right to refuse or discontinue treatment at any time</li>
+                        <li>Right to privacy and confidentiality of medical records</li>
+                        <li>Right to respectful and dignified care</li>
+                        <li>Right to file complaints and receive timely resolution</li>
+                    </ul>
+                </div>
+
+                <div class="policy-item">
+                    <h4>Quality Assurance</h4>
+                    <p>Our quality management system includes:</p>
+                    <ul>
+                        <li>Regular internal audits and quality checks</li>
+                        <li>Patient feedback collection and analysis</li>
+                        <li>Adverse event reporting and corrective action protocols</li>
+                        <li>Staff performance evaluations and training updates</li>
+                        <li>Continuous improvement initiatives based on outcomes</li>
+                    </ul>
+                </div>
+
+                <div class="policy-item">
+                    <h4>Accessibility & Affordability</h4>
+                    <p>We ensure healthcare access through:</p>
+                    <ul>
+                        <li>Transparent pricing with no hidden costs</li>
+                        <li>Flexible payment options and installment plans</li>
+                        <li>Insurance coordination and claim assistance</li>
+                        <li>Pro bono services for eligible patients in need</li>
+                        <li>Community outreach and health education programs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="certifications-banner">
+            <div class="section-header">
+                <h3 style="font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 2rem;">Our Certifications & Accreditations</h3>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon">🏆</div>
+                    <h3>FDA Approved</h3>
+                    <p>All medical devices and technologies used are FDA approved, ensuring international safety standards.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">✓</div>
+                    <h3>EU-MDR Certified</h3>
+                    <p>Compliance with European Union Medical Device Regulation for medical equipment safety.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⭐</div>
+                    <h3>ISO Certified</h3>
+                    <p>ISO certification for quality management systems and patient care standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Our Team Section -->
+    <section class="section" id="team">
+        <div class="section-header">
+            <h2>Meet Our Expert Team</h2>
+            <p>Highly qualified professionals dedicated to your healing</p>
+        </div>
+        
+        <div class="about-intro">
+            <p>Our multidisciplinary team consists of experienced doctors, physiotherapists, wound care specialists, and healthcare professionals who are passionate about non-surgical healing. Each team member brings years of expertise and a deep commitment to patient care.</p>
+        </div>
+
+        <div class="grid-3" style="margin-top: 3rem;">
+            <div class="team-card">
+                <div class="team-image">👨‍⚕️</div>
+                <div class="team-info">
+                    <h3>Dr. [Name]</h3>
+                    <p class="team-role">Medical Director & Spine Specialist</p>
+                    <p class="team-bio">Leading expert in non-surgical spine care with over 15 years of experience in regenerative medicine and pain management.</p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-image">👩‍⚕️</div>
+                <div class="team-info">
+                    <h3>Dr. [Name]</h3>
+                    <p class="team-role">Orthopedic Specialist</p>
+                    <p class="team-bio">Specialized in conservative orthopedic care and joint preservation techniques, helping patients avoid joint replacement surgeries.</p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-image">👨‍⚕️</div>
+                <div class="team-info">
+                    <h3>Dr. [Name]</h3>
+                    <p class="team-role">Wound Care Specialist</p>
+                    <p class="team-bio">Expert in advanced wound healing with a track record of saving hundreds of limbs from amputation through innovative treatments.</p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-image">👩‍⚕️</div>
+                <div class="team-info">
+                    <h3>[Name]</h3>
+                    <p class="team-role">Chief Physiotherapist</p>
+                    <p class="team-bio">Certified in multiple physiotherapy specializations with expertise in rehabilitation and movement disorders.</p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-image">👨‍⚕️</div>
+                <div class="team-info">
+                    <h3>Dr. [Name]</h3>
+                    <p class="team-role">Vascular Health Specialist</p>
+                    <p class="team-bio">Focused on non-invasive vascular treatments and preventive care for circulatory disorders.</p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-image">👩‍⚕️</div>
+                <div class="team-info">
+                    <h3>Dr. [Name]</h3>
+                    <p class="team-role">Wellness & Metabolic Health</p>
+                    <p class="team-bio">Specialized in metabolic disorders and women's wellness with a holistic approach to health optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Experience Our Care?</h2>
+        <p>Join thousands of satisfied patients who have chosen RMC Health for their healing journey.</p>
+        <a href="contact.html" class="btn-primary">Book Your Consultation</a>
+    </section>
+
+   <!-- 🌊 Premium RMC Health Footer -->
+<footer class="footer">
+  <div class="footer-wave">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path
+        d="M985.66,92.83c-79-20.83-161.88-61.83-241.82-78.64C661.58,3.88,575.78,2.87,493.39,19.59
+         c-57.8,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.83
+         C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+        class="shape-fill"
+      ></path>
+    </svg>
+  </div>
+
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="footer-logo-symbol"><i class="fa-solid fa-heart-pulse"></i></div>
+        <span>RMC Health</span>
+      </div>
+      <p>
+        Empowering lives through advanced regenerative medicine and non-surgical healing.
+        Where science meets compassion.
+      </p>
+      <div class="social-icons">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-section">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#home"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="#about"><i class="fa-solid fa-user-doctor"></i> About Us</a></li>
+          <li><a href="#services"><i class="fa-solid fa-stethoscope"></i> Services</a></li>
+          <li><a href="#partner"><i class="fa-solid fa-handshake"></i> Partner</a></li>
+          <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Treatments</h3>
+        <ul>
+          <li><a href="#"><i class="fa-solid fa-bone"></i> Spine Care</a></li>
+          <li><a href="#"><i class="fa-solid fa-person-running"></i> Ortho</a></li>
+          <li><a href="#"><i class="fa-solid fa-heart"></i> Vascular</a></li>
+          <li><a href="#"><i class="fa-solid fa-dna"></i> Regenerative</a></li>
+          <li><a href="#"><i class="fa-solid fa-venus-mars"></i> Wellness</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Visit Us</h3>
+        <ul>
+          <li><i class="fa-solid fa-location-dot"></i> Pune</li>
+          <li><i class="fa-solid fa-location-dot"></i> Trivandrum</li>
+          <li><i class="fa-solid fa-location-dot"></i> Kollam</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      &copy; 2025 <strong>RMC Health</strong> — Crafted with
+      <i class="fa-solid fa-heart"></i> for better living.
+    </p>
+    <div class="footer-policy">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to Top -->
+<div class="scroll-top" id="scrollTop"><i class="fa-solid fa-angle-up"></i></div>
+
+<script src="footer.js"></script>
+
+
+
+    <div class="scroll-top" id="scrollTop">↑</div>
+    <script src="script.js"></script>
+
+</body>
+</html>
+               
